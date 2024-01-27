@@ -1,0 +1,12 @@
+{
+  "email": "email",
+  "password": "password",
+  "NOT_EMPTY": "$t(validation.{property}) cannot be empty 123",
+  "IsNotEmpty": "Поле не должно быть пустым",
+  "INVALID_EMAIL": "email is invalid",
+  "LENGTH": "{property} is not a boolean",
+  "IsJWT": "Невалидный токен",
+  "Length": "Строка должна быть больше {constraints.0} или меньше {constraints.1} символов",
+  "MIN": "{property} with value: \"{value}\" needs to be at least {constraints.0}, ow and {message}",
+  "MAX": "{property} with value: \"{value}\" needs to be less than {constraints.0}, ow and {message}"
+}
