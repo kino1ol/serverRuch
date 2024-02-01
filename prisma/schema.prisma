@@ -1,32 +1,30 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
-datasource db {
-  provider = "sqlite"
-  url      = env("DATABASE_URL")
-}
-
 generator client {
   provider = "prisma-client-js"
 }
 
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
 model Users {
-  id          Int        @id @default(autoincrement())
-  domain      String     @unique
-  password    String
-  categories  Category[]
-  isReview    Boolean    @default(false)
-  isWorks     Boolean    @default(false)
-  isMap       Boolean    @default(false)
-  isEquipment Boolean    @default(false)
-  image       String     @default("/")
-  hashedRt    String?
+  id                       Int        @id @default(autoincrement())
+  domain                   String     @unique
+  password                 String
+  isWorks                  Boolean    @default(false)
+  isMap                    Boolean    @default(false)
+  isEquipmentConfiguration Boolean    @default(false)
+  image                    String     @default("/")
+  hashedRt                 String?
+  isGeneralReviews         Boolean    @default(false)
+  isIndividualReviews      Boolean    @default(false)
+  categories               Category[]
 }
 
 model Category {
   id       Int    @id @default(autoincrement())
   name     String
   priority Int
-  Users    Users? @relation(fields: [usersId], references: [id])
   usersId  Int?
+  Users    Users? @relation(fields: [usersId], references: [id])
 }
